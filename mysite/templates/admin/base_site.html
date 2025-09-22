@@ -1,0 +1,15 @@
+<!-- If you plan to modify the default views just like here,
+ you must download the file from the https://github.com/django/django/tree/main/django/contrib/admin/templates
+ and put it here and change code.-->
+{% extends "admin/base.html" %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<div id="site-name"><a href="{% url 'admin:index' %}">Very Cool Website</a></div>
+{% if user.is_anonymous %}
+  {% include "admin/color_theme_toggle.html" %}
+{% endif %}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
